@@ -1,0 +1,57 @@
+.post-wrap {
+    overflow: hidden;
+    padding-top: 25px;
+}
+
+.post-container {
+    padding: 0px 30px;
+}
+
+.post-container .title-col h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.post-row {
+    display: flex;
+    margin: 0px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 0px;
+}
+
+.post-row::-webkit-scrollbar {
+    display: none;
+}
+
+.post-row .post-col,
+.post-row .smallPoster {
+    padding: 0px 5px;
+    line-height: 0;
+    transition: all .3s ease-in-out;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.post-row .post-col:hover,
+.post-row .smallPoster:hover {
+    z-index: 3;
+}
+
+.post-row .post-col img {
+    max-height: 200px;
+    transform: scale(1);
+    transition: all .3s ease-in-out;
+}
+
+.post-row .smallPoster img {
+    max-height: 150px;
+    transform: scale(1);
+    transition: all .3s ease-in-out;
+}
+
+.post-row .post-col:hover img,
+.post-row .smallPoster:hover img {
+    transform: scale(1.1);
+    z-index: 9;
+}
