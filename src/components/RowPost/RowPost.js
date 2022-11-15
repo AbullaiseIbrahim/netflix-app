@@ -9,10 +9,10 @@ function RowPost(props) {
     const [urlId, setUrlId] = useState('')
     useEffect(() => {
         axios.get(props.url).then(Response=>{
-            console.log(Response)
+            // console.log(Response)
             setmovies(Response.data.results)
         })
-    }, [])
+    }, [props.url])
 
     const opts = {
         height: '390',
@@ -22,10 +22,10 @@ function RowPost(props) {
         },
     };
 
+    // console.log('see')
     const handleMovie = (id)=> {
-        console.log(id)
         axios.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`).then(response=>{
-            if(response.data.results.legnth != 0) {
+            if(response.data.results.legnth !== 0) {
                 setUrlId(response.data.results[0])
             }
             else {
@@ -42,13 +42,15 @@ function RowPost(props) {
             </div>
             <div className="post-row">
                 {movies.map((obj)=> 
-                    <div onClick={()=>handleMovie(obj.id)} className={props.isSmall ? 'smallPoster' : 'post-col'}>
+                    <div onClick={()=>handleMovie(obj.id)} className={props.isSmall ? 'smallPoster' : 'post-col'} key={obj.id}>
                         <img src={`${imageUrl+obj.backdrop_path}`} alt="Post Thumbnail" />
                     </div>
                 )}
             </div>
         </div>
-        {urlId && <YouTube videoId={urlId.key} opts={opts} /> }
+        <div className="video-popup">
+            {urlId && <YouTube videoId={urlId.key} opts={opts} /> }
+        </div>
     </div>
     )
 }
