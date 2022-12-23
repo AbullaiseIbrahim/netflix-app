@@ -10,6 +10,7 @@
 .post-container .title-col h2 {
     font-size: 24px;
     margin-bottom: 5px;
+    padding: 0px 10px;
 }
 
 .post-row {
@@ -17,7 +18,7 @@
     margin: 0px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 10px 0px;
+    padding: 10px;
 }
 
 .post-row::-webkit-scrollbar {
@@ -31,6 +32,7 @@
     transition: all .3s ease-in-out;
     z-index: 1;
     cursor: pointer;
+    position: relative;
 }
 
 .post-row:hover .smallPoster,
@@ -50,13 +52,13 @@
 }
 
 .post-row .post-col img {
-    max-height: 200px;
+    max-height: 360px;
     transform: scale(1);
     transition: all .3s ease-in-out;
 }
 
 .post-row .smallPoster img {
-    max-height: 150px;
+    max-height: 260px;
     transform: scale(1);
     transition: all .3s ease-in-out;
 }
@@ -74,4 +76,59 @@
     align-items: center;
     justify-content: center;
     z-index: 9;
+}
+
+.movieDetails {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    transform: translateY(130%);
+    z-index: 2;
+    transition: all .3s ease-in-out;
+    pointer-events: none;
+}
+
+.movieDetails h5 {
+    font-size: 18px;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 45px;
+}
+
+.movieDetails p {
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 13px;
+}
+
+.post-row .post-col:hover .movieDetails,
+.post-row .smallPoster:hover .movieDetails {
+    transform: translateY(-10px);
+}
+
+.post-row .post-col:before,
+.post-row .smallPoster:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: linear-gradient(transparent, black);
+    z-index: 1;
+    transform: scale(1.1) translateY(130%);
+    transition: all .3s ease-in-out;
+    pointer-events: none;
+}
+
+.post-row .post-col:hover:before,
+.post-row .smallPoster:hover:before {
+    transform: scale(1.1) translateY(0px);
 }

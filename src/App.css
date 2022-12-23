@@ -12,3 +12,7 @@ body {
   margin: 0px;
   box-sizing: border-box;
 }
+
+.modal-video-close-btn {
+  cursor: pointer;
+}
